@@ -1,0 +1,10 @@
+{
+  "h1": {
+    "text": "title",
+    "style": "margin-bottom: 1rem"
+  },
+  "div": {
+    "text": "main content",
+    "style": "color: green"
+  }
+}
