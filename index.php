@@ -2,20 +2,26 @@
 $json_file = file_get_contents("test.json");
 $json_decode = json_decode($json_file, true);
 
-foreach($json_decode as $keyTag => $itemArray) {
-//    echo $keyTag, "<br>";
-    $keyKeyArr = array();
-    $keyValueArr = array();
-    foreach($itemArray as $keyKey => $keyValue) {
-//        echo $keyKey . ' '. $keyValue, "<br>";
-        $keyKeyArr[] = $keyKey;
-        $keyValueArr[] = $keyValue;
+function ave($json_decode) {
+    foreach($json_decode as $keyTag => $itemArray) {
+//            echo $keyTag, "<br>";
+        $s .= "<$keyTag ";
+        foreach($itemArray as $keyKey => $keyValue) {
+//            echo $keyKey . ' '. $keyValue, "<br>";
+        }
+        $s .= "$keyKey=" . "'$keyValue'>" ;
+        foreach($itemArray as $keyKey => $keyValue) {
+            $s .= $keyValue . "</$keyTag> </n>";
+            break;
+        }
     }
-    $resultN = "<$keyTag $keyKeyArr[1]='$keyValueArr[1]'>$keyValueArr[0]<$keyTag/>";
-    echo $resultN;
+    return $s;
 }
 
+echo ave($json_decode);
+
 ?>
+
 
 <?php
 //
